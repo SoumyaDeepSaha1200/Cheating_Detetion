@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Functionality</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        #colorButton {
+            background-color: blue;
+            color: white;
+        }
+        #greetButton {
+            background-color: orange;
+            color: white;
+        }
+        #calculateButton {
+            background-color: green;
+            color: white;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        #result {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Color-Changing Button -->
+    <button id="colorButton">Click me to change color!</button>
+
+    <!-- Greeting Message Button -->
+    <button id="greetButton">Greet me!</button>
+
+    <!-- Basic Calculator -->
+    <div>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button id="calculateButton">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Color-Changing Button
+        const colors = ["blue", "green", "red", "purple", "orange"];
+        let currentColorIndex = 0;
+
+        document.getElementById("colorButton").addEventListener("click", function() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            this.style.backgroundColor = colors[currentColorIndex];
+        });
+
+        // Greeting Message Button
+        document.getElementById("greetButton").addEventListener("click", function() {
+            const hours = new Date().getHours();
+            let greeting;
+
+            if (hours < 12) {
+                greeting = "Good Morning!";
+            } else if (hours < 18) {
+                greeting = "Good Afternoon!";
+            } else {
+                greeting = "Good Evening!";
+            }
+
+            alert(greeting);
+        });
+
+        // Basic Calculator
+        document.getElementById("calculateButton").addEventListener("click", function() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const result = num1 + num2;
+
+            document.getElementById("result").innerText = "Result: " + result;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>My portfolio</title>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <nav class="navbar">
+        <img src="./logoimage.png" alt="">
+        <!-- <h4>Soumya Deep Saha</h4> -->
+        <ul class="navlist" id="navlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="./Soumya Deep_Saha_BCA_GNIT.pdf" download>Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- nav bar end -->
+
+
+
+
+
+
+    <!-- Banner -->
+    <div class="banner" id="about">
+        <div class="banrap">
+            <img src="./image10.jpg" alt="">
+        </div>
+        <div class="banrap">
+            <h1>Soumya Deep Saha 👋</h1>
+            <p>Full stack web developer 🚀 skilled in Android and Java development. Alumni of Gurunanak Institute of
+                Technology. Proven leader with a track record in web development and Python projects. Passionate about
+                innovative tech solutions and continuous learning.</p>
+            <div class="icon">
+                <a href=""><i class='bx bxl-facebook-circle' id="facebook"></i></a>
+                <a href=""><i class='bx bxl-linkedin-square' id="link"></i></a>
+                <a href=""><i class='bx bxl-github' id="github"></i></a>
+                <a href=""><i class='bx bxl-instagram' id="instagram"></i></a>
+            </div>
+            <a href="youtube.com"><button class="button">Contact Me</button></a>
+            <a href="./Soumya Deep_Saha_BCA_GNIT.pdf" download><button class="button">Download Resume</button></a>
+
+        </div>
+    </div>
+    <!-- banner end -->
+
+
+
+
+
+
+
+
+
+    <!-- About -->
+    <div class="skills-section" id="skills">
+        <h2 class="section-heading">My Skills</h2> <!-- Added headline -->
+        <div class="card-container">
+            <div class="card">
+                <img src="./skills.jpg" alt="Web Development Image" class="icon">
+                <div class="skill-name">Web Development</div>
+                <p class="skill-desc">Building responsive and interactive sites using HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="card">
+                <img src="./skills2.jpg" alt="Android Development Image" class="icon">
+                <div class="skill-name">Android Development</div>
+                <p class="skill-desc">Creating user-friendly Android apps with Kotlin and Java.</p>
+            </div>
+            <div class="card">
+                <img src="./python.jpg" alt="Python Programming Image" class="icon">
+                <div class="skill-name">Python Programming</div>
+                <p class="skill-desc">Writing efficient and effective scripts for data analysis and automation.</p>
+            </div>
+            <div class="card">
+                <img src="./skills3.png" alt="Python Programming Image" class="icon">
+                <div class="skill-name">Java Programming</div>
+                <p class="skill-desc">Building responsive and interactive sites using HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="card">
+                <img src="./web design.jpg" alt="Python Programming Image" class="icon">
+                <div class="skill-name">Web or UXUI Design</div>
+                <p class="skill-desc">Designing intuitive and visually appealing interfaces for websites and
+                    applications.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+
+    <!-- About -->
+    <div class="skills-section" id="projects">
+        <h2 class="section-heading">My Projects</h2> <!-- Added headline -->
+        <div class="card-container">
+            <div class="card">
+                <img src="./cheating.png" alt="Web Development Image" class="icon">
+                <div class="skill-name">Cheating Detection System</div>
+                <p class="skill-desc">Building responsive and interactive sites using HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="card">
+                <img src="./jervis.png" alt="Android Development Image" class="icon">
+                <div class="skill-name">J.E.R.V.I.S</div>
+                <p class="skill-desc">Creating user-friendly Android apps with Kotlin and Java.</p>
+            </div>
+            <div class="card">
+                <img src="./movie.png" alt="Python Programming Image" class="icon">
+                <div class="skill-name">Movie Recommendation System</div>
+                <p class="skill-desc">Writing efficient and effective scripts for data analysis and automation.</p>
+            </div>
+            <div class="card">
+                <img src="./movie.png" alt="Python Programming Image" class="icon">
+                <div class="skill-name">ICUBE Computer Sales & Services website</div>
+                <p class="skill-desc">Writing efficient and effective scripts for data analysis and automation.</p>
+            </div>
+        </div>
+    </div>
+    <!-- projects end -->
+
+
+
+
+    <hr>
+
+
+
+
+    <!-- contact -->
+    <div class="contact" id="contact">
+        <div class="contactrap">
+            <div class="contact-form">
+                <div class="form-image">
+                    <!-- Left side image -->
+                    <img src="conact.jpg" alt="Contact Image">
+                </div>
+                <div class="form-inputs">
+                    <!-- Right side form -->
+                    <h1>Connect with Me</h1>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number:</label>
+                            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <div class="copyright">
+        &copy; 2024 Soumya Deep Saha. All Rights Reserved.
+    </div>
+
+
+</body>
+
+</html>

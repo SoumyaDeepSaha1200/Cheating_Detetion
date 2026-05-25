@@ -1,0 +1,338 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    z-index: 10;
+    position: relative;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 3em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#taskInput {
+    width: 85%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: all 0.5s ease;
+}
+
+#taskInput:hover {
+    border-color: #e52e71;
+}
+
+#addTaskButton {
+    padding: 15px 25px;
+    border: none;
+    background-color: #df1600;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    transition: all 0.5s ease;
+}
+
+#addTaskButton i {
+    margin-right: 10px;
+}
+
+#addTaskButton:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.5s;
+    font-size: 1.2em;
+    transition: background-color 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+li:hover {
+    background-color: #e0e0e0;
+}
+
+li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.5s ease;
+}
+
+li button:hover {
+    background-color: #c82333;
+}
+
+/* Background animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.ball {
+    position: absolute;
+    border-radius: 50%;
+    animation: bounce 5s infinite ease-in-out;
+    opacity: 0.7;
+    transition: all 0.5s ease;
+}
+
+.ball:hover {
+    transform: scale(1.2);
+}
+
+/* Ball specific styles */
+.ball:nth-child(1) {
+    background-color: #ff8a00;
+    top: 20%;
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+.ball:nth-child(2) {
+    background-color: #e52e71;
+    top: 50%;
+    left: 70%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.ball:nth-child(3) {
+    background-color: #28a745;
+    top: 30%;
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.ball:nth-child(4) {
+    background-color: #007bff;
+    top: 80%;
+    left: 20%;
+    width: 70px;
+    height: 70px;
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+.ball:nth-child(5) {
+    background-color: #ffc107;
+    top: 10%;
+    left: 80%;
+    width: 80px;
+    height: 80px;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+.ball:nth-child(6) {
+    background-color: #ff6347;
+    top: 60%;
+    left: 60%;
+    width: 45px;
+    height: 45px;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+
+.ball:nth-child(7) {
+    background-color: #6a5acd;
+    top: 40%;
+    left: 90%;
+    width: 65px;
+    height: 65px;
+    animation-duration: 11s;
+    animation-delay: 6s;
+}
+
+.ball:nth-child(8) {
+    background-color: #ff1493;
+    top: 15%;
+    left: 25%;
+    width: 55px;
+    height: 55px;
+    animation-duration: 12s;
+    animation-delay: 7s;
+}
+
+.ball:nth-child(9) {
+    background-color: #00ced1;
+    top: 70%;
+    left: 15%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 13s;
+    animation-delay: 8s;
+}
+
+.ball:nth-child(10) {
+    background-color: #32cd32;
+    top: 25%;
+    left: 75%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 14s;
+    animation-delay: 9s;
+}
+
+.ball:nth-child(11) {
+    background-color: #ff4500;
+    top: 45%;
+    left: 35%;
+    width: 70px;
+    height: 70px;
+    animation-duration: 15s;
+    animation-delay: 10s;
+}
+
+.ball:nth-child(12) {
+    background-color: #8a2be2;
+    top: 55%;
+    left: 85%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 16s;
+    animation-delay: 11s;
+}
+
+.ball:nth-child(13) {
+    background-color: #1e90ff;
+    top: 65%;
+    left: 45%;
+    width: 75px;
+    height: 75px;
+    animation-duration: 17s;
+    animation-delay: 12s;
+}
+
+.ball:nth-child(14) {
+    background-color: #ff00ff;
+    top: 75%;
+    left: 55%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 18s;
+    animation-delay: 13s;
+}
+
+.ball:nth-child(15) {
+    background-color: #00ff00;
+    top: 85%;
+    left: 65%;
+    width: 65px;
+    height: 65px;
+    animation-duration: 19s;
+    animation-delay: 14s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-200px) translateX(50px);
+    }
+}
+/* Animation for tasks when added */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animation for tasks when removed */
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Hover animation for add task button */
+#addTaskButton:hover {
+    transform: scale(1.1);
+}
+
+/* Hover animation for remove task button */
+li button:hover {
+    transform: scale(1.1);
+}
+
+/* Hover animation for input field */
+#taskInput:hover {
+    border-color: #e52e71;
+    box-shadow: 0px 0px 10px rgba(229, 46, 113, 0.5);
+}

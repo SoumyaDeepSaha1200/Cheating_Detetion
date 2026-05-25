@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+    <link rel="shortcut icon" href="/static/images/2023.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: #000000;">
+    <video id="webcam" width="80" height="80" autoplay style="float: right;margin-right: 1cm;"></video>
+
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" id="sidebar"></div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <div class="container question-container">
+                    <div class="timer" id="timer">Time Remaining: <span id="time">30:00</span></div>
+                    <style>
+                        .question p {
+                            font-weight: bold;
+                        }
+                    </style>
+
+
+
+
+                    {% for i in question %}
+                    <div class="question" id="question{{ forloop.counter }}">
+                        <h4>Question {{ forloop.counter }}:</h4>
+                        <p>{{ i.question }}</p>
+                        <ul class="options">
+                            <li><input type="radio" name="q{{ forloop.counter }}" value="{{ i.option1 }}"> {{ i.option1 }} </li>
+                            <li><input type="radio" name="q{{ forloop.counter }}" value="{{ i.option2 }}"> {{ i.option2 }} </li>
+                            <!-- Example for Question 1 -->
+                            <li><input type="radio" name="q{{ forloop.counter }}" value="{{ i.option3 }}"> {{ i.option3 }} </li>
+                            </li> <!--Answer-->
+                            <li><input type="radio" name="q{{ forloop.counter }}" value="{{ i.option4 }}"> {{ i.option4 }} </li>
+                        </ul>
+                        
+                        {% if forloop.counter == 1 %}
+                            <button class="btn btn-primary navigation-btn" onclick="nextQuestion(1, 2)">Next
+                            Question</button>
+                        {% elif forloop.counter != question|length %}  
+                        <button class="btn btn-primary navigation-btn" onclick="prevQuestion()">Previous
+                            Question</button>
+                            <button class="btn btn-primary navigation-btn" onclick="nextQuestion({{ forloop.counter }}, {{ forloop.counter }}+1)">Next
+                            Question</button>           
+                        {% else %}
+                            <button class="btn btn-primary navigation-btn" onclick="prevQuestion()">Previous
+                            Question</button>
+                            <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()">Submit</button>
+                        {% endif %}
+
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Pop-up container -->
+    <div id="popupContainer" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2 class="fw-bold" style="font-size: 50px;">Exam Results</h2>
+            <p id="resultMessage"></p>
+
+            <!-- Buttons to go to the home page -->
+            <button onclick="goToHomePage()">Go to Home Page</button>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function goToHomePage() {
+            // Add the logic to redirect to the home page
+            window.location.href = '/mainpage'; // Replace with your actual home page URL
+        }
+    </script>
+    <script>
+        // Add your JavaScript code
+
+        function submitQuiz() {
+            // Calculate the marks here based on the selected answers
+
+            // For demonstration purposes, let's assume the total marks are 5
+            let totalMarks = 30;
+            let userMarks = 0;
+            let answeredQuestions = 0; // Track the number of answered questions
+
+            // Check the selected answers and calculate user's marks
+            for (let i = 1; i <= 30; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    answeredQuestions++;
+                    // Perform your logic for calculating marks here
+                    // Example for Question 1
+                    if (selectedOption.value === "2^21") {
+                        userMarks++;
+                    }
+                    // Repeat the above logic for other questions
+                }
+            }
+
+            // Display the result message
+            let resultMessage = `You answered ${answeredQuestions} out of 30 questions and scored ${userMarks} out of ${totalMarks} marks.`;
+
+            // Show the pop-up with the result message
+            document.getElementById("resultMessage").innerText = resultMessage;
+            document.getElementById("popupContainer").style.display = "block";
+        }
+        {% for i in question %}
+        // Example for Question 1
+        if (document.querySelector('input[name="q{{ forloop.counter }}"]:checked').value == "{{ i.answer }}") {
+            userMarks++;
+            console.log("Correct");
+        }
+        {% endfor %}
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                var video = document.getElementById('webcam');
+                video.srcObject = stream;
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                };
+            })
+            .catch(function (err) {
+                console.log('Error: ' + err);
+            });
+    </script>
+
+    <script>
+        let currentQuestion = 1;
+        let timer;  // Declare timer as a global variable
+
+        document.addEventListener('DOMContentLoaded', function () {
+            generateSidebarQuestions();
+            showQuestion(currentQuestion);
+            startTimer();
+        });
+
+
+        function generateSidebarQuestions() {
+            const sidebar = document.getElementById('sidebar');
+            for (let i = 1; i <= 30; i++) {
+                const sidebarQuestion = document.createElement('div');
+                sidebarQuestion.className = 'sidebar-question';
+                sidebarQuestion.innerText = `Question ${i}`;
+                sidebarQuestion.onclick = () => showQuestion(i);
+                sidebar.appendChild(sidebarQuestion);
+            }
+        }
+
+
+
+
+
+        function showQuestion(questionNumber) {
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(question => question.style.display = 'none');
+
+            const currentQuestionElement = document.getElementById(`question${questionNumber}`);
+            currentQuestionElement.style.display = 'block';
+
+            currentQuestion = questionNumber;
+            updateSidebarHighlight();
+        }
+
+
+
+
+
+        function updateSidebarHighlight() {
+            const sidebarQuestions = document.querySelectorAll('.sidebar-question');
+            sidebarQuestions.forEach(sidebarQuestion => sidebarQuestion.classList.remove('active'));
+
+            const currentSidebarQuestion = document.querySelector(`.sidebar-question:nth-child(${currentQuestion})`);
+            currentSidebarQuestion.classList.add('active');
+        }
+
+
+
+
+
+        function nextQuestion(currentQuestionId, nextQuestionId) {
+            const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
+            // if (!selectedOption) {
+            //     alert('Please select an option before moving to the next question.');
+            //     return;
+            // }
+
+            showQuestion(nextQuestionId);
+        }
+
+
+
+
+
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+
+
+
+
+
+        function startTimer() {
+            let timeInSeconds = 1800; // 30 minutes
+            timer = setInterval(function () {  // Use the global timer variable
+                const minutes = Math.floor(timeInSeconds / 60);
+                const seconds = timeInSeconds % 60;
+                document.getElementById('time').innerText = `${formatTime(minutes)}:${formatTime(seconds)}`;
+
+                if (timeInSeconds === 0) {
+                    clearInterval(timer);
+                    alert('Time is up! Submitting exam.');
+                    submitExam();
+                }
+
+                timeInSeconds--;
+            }, 1000);
+        }
+
+
+        function formatTime(time) {
+            return time < 10 ? `0${time}` : time;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.1.0/weights/"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.1.0/dist/face-api.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        /* Add your styles */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #fff;
+            z-index: 1000;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+        }
+    </style>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        /* Add this style to your existing CSS */
+        .col-md-3 {
+            background-color: #343a40;
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+            scrollbar-width: thin;
+            scrollbar-color: #6c757d #343a40;
+        }
+
+        /* Move the scrollbar to the left side */
+        .col-md-3::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        .col-md-3::-webkit-scrollbar-thumb {
+            background-color: #6c757d;
+            border-radius: 6px;
+        }
+
+        .col-md-3::-webkit-scrollbar-thumb:hover {
+            background-color: #495057;
+        }
+
+        .col-md-3::-webkit-scrollbar-track {
+            background-color: #343a40;
+            border-radius: 10px;
+        }
+
+        /* Adjust the padding to create space for the scrollbar on the left */
+        .question-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-left: 20px;
+            /* Adjust this value as needed */
+        }
+
+        .sidebar-question {
+            background-color: #6c757d;
+            color: #ffffff;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .sidebar-question:hover {
+            background-color: #495057;
+        }
+
+        .question-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .timer {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin-bottom: 10px;
+        }
+
+        .navigation-btn {
+            margin-right: 10px;
+        }
+
+        #video {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            margin-top: 1cm;
+            margin-right: 2cm;
+        }
+    </style>
+</body>
+
+</html>

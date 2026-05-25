@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">MyLogo</div>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Our Landing Page</h1>
+                <p>We provide the best services for you.</p>
+                <a href="#services" class="btn">About Us</a>
+            </div>
+        </section>
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="service-container">
+                <div class="service">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Development</h3>
+                    <p>High-quality web development services.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Development</h3>
+                    <p>Innovative mobile app solutions.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Services</h3>
+                    <p>Reliable cloud computing services.</p>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="features">
+            <h2>Features</h2>
+            <div class="features-container">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Performance</h3>
+                    <p>Experience blazing fast performance.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure</h3>
+                    <p>Top-notch security features for your data.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Customizable</h3>
+                    <p>Highly customizable to meet your needs.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-thumbs-up"></i>
+                    <h3>User Friendly</h3>
+                    <p>Easy to use with an intuitive interface.</p>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>We are a leading company in providing the best solutions for your business needs.</p>
+            <p>Our team of experts is dedicated to delivering top-notch services.</p>
+        </section>
+        <section id="team" class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="man1.jpg" alt="Team Member">
+                    <h3>Steve Jobs</h3>
+                    <p>CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="man2.webp" alt="Team Member">
+                    <h3>Elon Musk</h3>
+                    <p>CTO</p>
+                </div>
+                <div class="team-member">
+                    <img src="man3.jpeg" alt="Team Member">
+                    <h3>Virat Kohli</h3>
+                    <p>Lead Developer</p>
+                </div>
+            </div>
+        </section>
+        <section id="blog" class="blog">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-container">
+                <div class="blog-post">
+                    <img src="image1.jpg" alt="Blog Post">
+                    <h3>How to Improve Your Web Development Skills</h3>
+                    <p>Discover the latest tips and techniques to enhance your web development abilities...</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <img src="image2.jpg" alt="Blog Post">
+                    <h3>The Future of Mobile App Development</h3>
+                    <p>Explore the trends and technologies shaping the future of mobile app development...</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <img src="image3.jpg" alt="Blog Post">
+                    <h3>Cloud Computing: What You Need to Know</h3>
+                    <p>Understand the key concepts and benefits of cloud computing in today's digital landscape...</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" class="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"Amazing service! Highly recommended."</p>
+                    <p>- Jane Doe</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Exceptional quality and support."</p>
+                    <p>- John Smith</p>
+                </div>
+                <div class="testimonial">
+                    <p>"The best experience I've ever had."</p>
+                    <p>- Emily Johnson</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>Feel free to reach out to us for any inquiries.</p>
+            <form action="#">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MyCompany. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

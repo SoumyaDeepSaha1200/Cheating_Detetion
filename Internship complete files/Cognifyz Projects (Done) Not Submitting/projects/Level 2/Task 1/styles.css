@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+.gallery {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.thumbnail {
+    max-width: 100px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.slideshow {
+    position: relative;
+}
+
+.slide {
+    max-width: 100%;
+    height: auto;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Optional: Add slideshow animation */
+.slide {
+    animation: slideshow 3s infinite;
+}
+
+@keyframes slideshow {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

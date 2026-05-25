@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institute of TechAdvance Institute</title>
+  <script src="https://kit.fontawesome.com/96806cec91.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="/static/images/2023.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0giq9" crossorigin="anonymous">
+  <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css">
+</head>
+
+<body>
+
+
+
+
+
+
+  <div class="login-box">
+    <div class="border-container"></div> <!-- Add this div for the gradient border -->
+    <h2 class="fw-bold fs-1 text-warning">Login</h2>
+    <form id="loginForm" method="POST" action="/login"> {% csrf_token %}
+      <div class="user-box">
+        <input type="name" id="text" name="username" required>
+        <label class="fw-bold">Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" id="password" name="password" required>
+        <label class="fw-bold">Password</label>
+      </div>
+      <a href="#" id="loginButton">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <button type="submit" id="buttons">
+          Login
+        </button>
+      </a>
+    </form>
+
+    <div class="box">
+      <div class="text-center">
+        <div class="fw-bold text-white fs-5">
+          You don't have an account?
+          <button onclick="location.href='/register'" class="btn btn-link text-white fw-bold register-btn fs-5"
+            id="register">
+            Sign-Up
+          </button>
+        </div>
+      </div>
+
+      <button onclick="location.href='#'" class="btn btn-link text-white fw-bold forgot-btn text-decoration-none mt-2"
+        id="register" style="display: block;margin-left: auto;margin-right: auto;">
+        Forgot Password
+      </button>
+      <div style="clear: both;"></div>
+
+
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} mt-4 mb-5 alert-dismissible fade show text-center w-75 mx-auto"
+        role="alert">
+        <strong> {{ message }} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+    body {
+      background-image: url(/static/images/background\ image.jpg);
+      background-size: cover;
+    }
+
+    .login-box h2 {
+      font-size: 55px !important;
+    }
+
+    #buttons {
+      border: none;
+      background-color: #ffffff00;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .register-btn {
+      text-decoration: none;
+      box-shadow: none;
+      background-color: #ffffff00;
+      color: #000000;
+    }
+
+    #register:hover {
+      background-color: #f4e003 !important;
+      color: #000000 !important;
+    }
+
+    .box {
+      border-radius: 50px;
+    }
+
+
+    .login-box {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 80vh;
+      width: 500px;
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      border: 5px solid transparent;
+      border-image: linear-gradient(45deg, #f42f03, #03f407, #f4ec03, #f403ec);
+      border-image-slice: 1;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .login-box h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+    }
+
+    .login-box .user-box {
+      position: relative;
+    }
+
+    .login-box .user-box input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #f7ff02;
+      outline: none;
+      background: transparent;
+    }
+
+    .login-box .user-box label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #ffffff;
+      pointer-events: none;
+      transition: .5s;
+    }
+
+    .login-box .user-box input:focus~label,
+    .login-box .user-box input:valid~label {
+      top: -20px;
+      left: 0;
+      color: #43f403;
+      font-size: 12px;
+    }
+
+    .login-box form a {
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #03d4f4;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px
+    }
+
+    .login-box a:hover {
+      background: #f42f03;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #f42f03, 0 0 25px #f42f03, 0 0 50px #f42f03, 0 0 100px #f42f03;
+    }
+
+    .login-box a span {
+      position: absolute;
+      display: block;
+    }
+
+    .login-box a span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f4e003);
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, #03f407);
+      animation: btn-anim2 1s linear infinite;
+      animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+      0% {
+        top: -100%;
+      }
+
+      50%,
+      100% {
+        top: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(270deg, transparent, #f4ec03);
+      animation: btn-anim3 1s linear infinite;
+      animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+      0% {
+        right: -100%;
+      }
+
+      50%,
+      100% {
+        right: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, #f403ec);
+      animation: btn-anim4 1s linear infinite;
+      animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+      0% {
+        bottom: -100%;
+      }
+
+      50%,
+      100% {
+        bottom: 100%;
+      }
+    }
+  </style>
+
+
+
+  <!-- ... Your existing HTML ... -->
+  <style>
+    /* Existing styles */
+
+    /* Add responsive styles below */
+
+    @media screen and (max-width: 768px) {
+      .login-box {
+        width: 80%;
+        /* Adjust the width for tablets */
+        padding: 20px;
+        /* Adjust the padding for smaller devices */
+      }
+
+      .login-box h2 {
+        font-size: 18px;
+        /* Adjust the heading size for smaller screens */
+      }
+
+      .login-box .user-box input,
+      .login-box .user-box label {
+        font-size: 14px;
+        /* Adjust font size */
+      }
+
+      .login-box form a {
+        font-size: 14px;
+        /* Adjust link font size */
+        padding: 8px 16px;
+        /* Adjust padding */
+      }
+
+      #buttons {
+        font-size: 18px;
+        /* Adjust button font size */
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .login-box {
+        width: 95%;
+        /* More width for very small screens */
+        height: auto;
+        /* Auto height for flexibility */
+        padding: 15px;
+        /* Adjust padding for very small screens */
+      }
+
+      .login-box h2 {
+        font-size: 16px;
+        /* Smaller heading size for mobile */
+      }
+
+      .login-box .user-box input,
+      .login-box .user-box label {
+        font-size: 12px;
+        /* Smaller font size for inputs and labels */
+      }
+
+      .login-box form a {
+        font-size: 12px;
+        /* Smaller link font size */
+        padding: 8px 16px;
+        /* Adjust padding */
+        margin-top: 20px;
+        /* Adjust top margin */
+      }
+
+      #buttons {
+        font-size: 16px;
+        /* Smaller button font size */
+      }
+
+      /* Adjusting register button for smaller screens */
+      .register-btn {
+        font-size: 14px;
+      }
+    }
+  </style>
+</body>
+
+</html>

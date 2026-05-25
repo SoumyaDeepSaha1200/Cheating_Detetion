@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+/* Style the scrollbar for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+
+body {
+    background-color: black;
+}
+
+
+/* nav bar */
+.nav-item a {
+    cursor: pointer;
+}
+
+.nav-link {
+    transition: color 0.5s ease;
+}
+
+.nav-link:hover {
+    color: #02ff30e0 !important;
+}
+
+.navbar-nav .dropdown-toggle::after {
+    display: none;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-item .dropdown-menu {
+    display: none;
+}
+
+.dropdown-item {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background-color: #4caf50;
+    color: #000000 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#algn{
+    height: 92vh;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card{
+    width: 470px;
+    height: 600px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
+}
+
+#upper-bg{
+    width: 100%;
+    height: 35%;
+    background-color: #FFE400;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-pic{
+    width: 60%;
+    background-color: white;
+    border: 3px solid #FFE400;
+    border-radius: 25%;
+    padding: 3px;
+    position: absolute;
+    top: 17px;
+}
+
+#lower-bg{
+    width: 100%;
+    height: 65%;
+}
+
+.text{
+    text-align: center;
+    padding-top: 35px;
+}
+
+.text .name{
+    font-weight: 600;
+    font-size: large;
+    padding: 0;
+    margin: 5px;
+}
+
+.text .title{
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+#icons{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+#icons img{
+    width: 80%;
+    height: 90%;
+}
+
+.ico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+#btn button{
+    margin: 0 20px;
+    padding: 10px 15px;
+    background-color: #FFE400;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+#btn button:hover{
+    box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
+}
+
+#l-c-s{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 10px;
+}
+
+#l-c-s .num{
+    display: flex;
+}
+
+#l-c-s .dvr{
+    width: 2px;
+    height: 25px;
+    background-color: gray;
+}
+
+#l-c-s img{
+    width: 24px;
+    height: 24px;
+}
+
+.license{
+    font-size: 12px;
+    text-align: center;
+}
+
+.license .ll{
+    padding: 0 10px;
+    display: inline;
+}
